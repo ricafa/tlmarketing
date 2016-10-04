@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Visitas </h1>
+ <%= link_to '<i class="material-icons">add</i>'.html_safe , new_visit_path, class:'btn-floating btn-large waves-effect waves-light red' %>
+<table>
+  <thead>
+    <tr>
+      <th>Contact</th>
+      <th>Operator</th>
+      <th>Clerk</th>
+      <th>Date must come</th>
+      <th>Date came</th>
+      <th>Signed contract</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @visits.each do |visit| %>
+      <tr>
+        <td><%= visit.contact.name if visit.contact %></td>
+        <td><%= visit.operator.name if visit.operator %></td>
+        <td><%= visit.clerk %></td>
+        <td><%= visit.date_must_come %></td>
+        <td><%= visit.date_came %></td>
+        <td><%= visit.signed_contract %></td>
+        <td><%= link_to '<i class="material-icons">contacts</i>'.html_safe, visit %></td>
+        <td><%= link_to 'Edit', edit_visit_path(visit) %></td>
+        <td><%= link_to 'Destroy', visit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

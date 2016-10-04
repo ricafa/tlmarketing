@@ -1,0 +1,42 @@
+<%= form_for(@visit) do |f| %>
+  <% if @visit.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@visit.errors.count, "error") %> prohibited this visit from being saved:</h2>
+
+      <ul>
+      <% @visit.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :contact_id %><br>
+    <%= f.collection_select :contact_id, Contact.all, :id, :name, :selected => @visit.contact_id, class: "browser-default", :include_blank => 'Selecione' %>
+  </div>
+  <div class="field">
+    <%= f.label :operator_id %><br>
+    <%= f.collection_select :operator_id, Operator.all, :id, :name, :selected => @visit.operator_id, class: "browser-default dropdown-content", id: 'dropdown1', :include_blank => 'Selecione' %>
+  </div>
+  <div class="field input-field">
+    <%= f.label :clerk, for: "clerk", id: "clerk", class: "active"%><br>
+    <%= f.text_field :clerk %>
+  </div>
+  <div class="field">
+    <%= f.label :date_must_come %><br>
+    <%= f.text_field :date_must_come, class:"datepicker"  %>
+  </div>
+  <div class="field">
+    <%= f.label :date_came %><br>
+    <%= f.text_field :date_came, class:"datepicker" %>
+  </div>
+  <div class="field">
+    <%= f.check_box :signed_contract, id: 'signed_contract' %>
+    <%= f.label :signed_contract, id: 'signed_contract', for: 'signed_contract'%><br>
+
+  </div>
+  <div class="actions">
+    <%= f.submit "Salvar", class:"btn green" %>
+  </div>
+<% end %>

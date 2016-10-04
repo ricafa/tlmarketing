@@ -1,0 +1,17 @@
+<h1> Operador</h1>
+<%= link_to '<i class="material-icons">add</i>'.html_safe , new_operator_path, class:'btn-floating btn-large waves-effect waves-light red' %>
+<div class="card-panel teal">
+<span class="white-text">
+<p>
+  <strong>Name:</strong>
+  <%= @operator.name %>
+</p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @operator.code %>
+</p>
+</span>
+</div>
+<%= link_to 'Edit', edit_operator_path(@operator) %> |
+<%= link_to 'Back', operators_path %>

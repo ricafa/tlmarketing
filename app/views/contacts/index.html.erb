@@ -1,0 +1,47 @@
+<ul class="collapsible" data-collapsible="accordion">
+    <li>
+      <div class="collapsible-header"><i class="material-icons">system_update_alt</i>Importar contatos</div>
+      <div class="collapsible-body">
+        <%= form_tag import_contacts_path, multipart: true do %>
+            <%= file_field_tag :file %>
+            <%= submit_tag "Importar", data: {disable_with: "carregando..."} %>
+        <% end %>
+      </div>
+    </li>
+</ul>
+
+<hr>
+<%= form_tag :contacts, :method => 'get', :url => contacts_path do |f| %>
+  <%= hidden_field_tag 'vt', params[:vt] if params[:vt].present? %>
+  <%= hidden_field_tag 'cl', params[:cl] if params[:cl].present? %>
+  <%= text_field_tag :name, params[:name], :class => "input-field", :placeholder => "Nome"  %> <br />
+  <%= submit_tag 'Pesquisar'.html_safe, :class => "btn" %>
+<%end %>
+
+<h4>Listando <%= @contacts.count %> Contatos <%= '| sem visitas ' if params[:vt].present? %> <%= '| sem ligações' if params[:cl].present? %></h4>
+<%= link_to '<i class="material-icons">add</i>'.html_safe , new_contact_path, class:'btn-floating btn-large waves-effect waves-light red' %>
+<table>
+  <thead>
+    <tr>
+      <th >Name</th>
+      <th>Phonenumber1</th>
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contacts.each do |contact| %>
+      <tr>
+        <td width="40%"><%= contact.name.capitalize %></td>
+        <td><%= contact.phonenumber1 %></td>
+        <td><%= link_to '<i class="material-icons">new_releases</i>'.html_safe, contact, :class => "btn-floating blue" %></td>
+        <td><%= link_to '<i class=" material-icons">edit</i>'.html_safe, edit_contact_path(contact), :class => "btn-floating yellow" %></td>
+        <td><%= link_to '<i class=" material-icons">close</i>'.html_safe, contact, method: :delete, data: { confirm: 'Tem certeza?' }, :class => "btn-floating red" %></td>
+        <td><%= link_to '<i class=" material-icons">phone</i>'.html_safe, new_call_path(:contact_id => contact.id), :class => "btn-floating green" %> </td>
+        <td><%= link_to '<i class=" material-icons">query_builder</i>'.html_safe, new_visit_path(:contact_id => contact.id), :class => "btn-floating green" %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

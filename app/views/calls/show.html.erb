@@ -1,0 +1,38 @@
+<h1> Ligação</h1>
+<%= link_to '<i class="material-icons">add</i>'.html_safe , new_call_path, class:'btn-floating btn-large waves-effect waves-light red' %>
+<div class="card-panel teal">
+<span class="white-text">
+
+<p>
+  <strong>Will visit:</strong>
+  <%= @call.will_visit %>
+</p>
+
+<p>
+  <strong>Answer:</strong>
+  <%= @call.answer %>
+</p>
+
+<p>
+  <strong>Operator:</strong>
+  <%= @call.operator %>
+</p>
+
+<p>
+  <strong>Contact:</strong>
+  <%= @call.contact %>
+</p>
+
+<p>
+  <strong>Call time:</strong>
+  <%= @call.call_time %>
+</p>
+
+<p>
+  <strong>Obs:</strong>
+  <%= @call.obs %>
+</p>
+</span>
+</div>
+<%= link_to 'Edit', edit_call_path(@call) %> |
+<%= link_to 'Back', calls_path %>

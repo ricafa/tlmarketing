@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Telemarketing</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <%= stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons" %>
+</head>
+<body>
+<div class="container">
+  <nav>
+   <div class="nav-wrapper teal">
+     <a href="/" class="brand-logo">TL Marketing</a>
+     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+     <ul class="right hide-on-med-and-down">
+       <br />
+       <li><a href="/operators"><big>Operadores</big></a></li>
+       <li><a href="/contacts?vt=true"><big>Sem Visitas</big></a></li>
+       <li><a href="/contacts?cl=true"><big>Sem Ligações</big></a></li>
+       <li><a href="/contacts?vt=true&cl=true"><big>Sem Visitas e Ligações</big></a></li>
+     </ul>
+     <ul class="side-nav" id="mobile-demo">
+       <li><a href="/operators">Operadores</a></li>
+       <li><a href="/contacts?vt=true">Sem Visitas</a></li>
+       <li><a href="/contacts?cl=true">Sem Ligações</a></li>
+       <li><a href="/contacts?vt=true&cl=true">Sem Visitas e Ligações</a></li>
+     </ul>
+   </div>
+ </nav>
+ <% if notice.present? %>
+   <script type="text/javascript">
+     Materialize.toast("<%= notice %>", 4000)
+   </script>
+ <% end %>
+  <%= yield %>
+</div>
+  <footer class="page-footer">
+    <div class="footer-copyright">
+      <div class="container">
+        <span class="right">
+          © 2016 Copyright | שָׁלוֹם
+        </span>
+      </div>
+    </div>
+   </footer>
+</body>
+</html>

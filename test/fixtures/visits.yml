@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  contact_id: 
+  operator_id: 
+  clerk: MyString
+  date_must_come: 2016-09-03 10:26:52
+  date_came: 2016-09-03 10:26:52
+  signed_contract: false
+
+two:
+  contact_id: 
+  operator_id: 
+  clerk: MyString
+  date_must_come: 2016-09-03 10:26:52
+  date_came: 2016-09-03 10:26:52
+  signed_contract: false

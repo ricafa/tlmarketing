@@ -1,0 +1,54 @@
+<%= form_for(@contact) do |f| %>
+  <% if @contact.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+
+      <ul>
+      <% @contact.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field input-field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field input-field">
+    <%= f.label :parents %><br>
+    <%= f.text_field :parents %>
+  </div>
+  <div class="field input-field">
+    <%= f.label :phonenumber1 %><br>
+    <%= f.text_field :phonenumber1 %>
+  </div>
+  <div class="field input-field">
+    <%= f.label :phonenumber2 %><br>
+    <%= f.text_field :phonenumber2 %>
+  </div>
+
+  <div class="field input-field">
+    <%= f.label :phonenumber3 %><br>
+    <%= f.text_field :phonenumber3 %>
+  </div>
+
+  <div class="field input-field">
+    <%= f.label :campaign %><br>
+    <%= f.text_field :campaign %>
+  </div>
+
+  <div class="field input-field">
+    <%= f.label :school %><br>
+    <%= f.text_field :school %>
+  </div>
+
+  <div class="field input-field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Salvar", class:"btn green" %>
+  </div>
+<% end %>

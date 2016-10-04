@@ -1,0 +1,42 @@
+<%= form_for(@call) do |f| %>
+  <% if @call.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@call.errors.count, "error") %> prohibited this call from being saved:</h2>
+
+      <ul>
+      <% @call.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.check_box :will_visit, id:'will_visit' %>
+    <%= f.label "Agendou visita?", id:"will_visit", for:"will_visit" %>
+  </div>
+  <div class="field">
+    <%= f.check_box :answer, id:'answer' %>
+    <%= f.label 'Atendeu?', id:'answer', for:'answer' %><br>
+
+  </div>
+  <div class="field">
+    <%= f.label 'Quem ligou?' %><br>
+    <%= f.collection_select :operator_id, Operator.all, :id, :name, :prompt => true %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_id %><br>
+    <%= f.collection_select :contact_id, Contact.all, :id, :name, :prompt => true %>
+  </div>
+  <div class="field">
+    <%= f.label "Quando ligou?", id:'call_time', for:'call_time' %>
+    <%= f.text_field :call_time, id:'call_time' , class:'datepicker' %>
+  </div>
+  <div class="field input-field">
+    <%= f.label :obs %><br>
+    <%= f.text_area :obs, class: "materialize-textarea" %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Salvar", class:"btn green" %>
+  </div>
+<% end %>

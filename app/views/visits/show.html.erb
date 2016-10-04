@@ -1,0 +1,37 @@
+<h1>Visitas</h1>
+<%= link_to '<i class="material-icons">add</i>'.html_safe , new_visit_path, class:'btn-floating btn-large waves-effect waves-light red' %>
+<div class="card-panel teal">
+<span class="white-text">
+<p>
+  <strong>Contact:</strong>
+  <%= @visit.contact.name if @visit.contact %>
+</p>
+
+<p>
+  <strong>Operator:</strong>
+  <%= @visit.operator.name if @visit.operator %>
+</p>
+
+<p>
+  <strong>Clerk:</strong>
+  <%= @visit.clerk %>
+</p>
+
+<p>
+  <strong>Date must come:</strong>
+  <%= @visit.date_must_come %>
+</p>
+
+<p>
+  <strong>Date came:</strong>
+  <%= @visit.date_came %>
+</p>
+
+<p>
+  <strong>Signed contract:</strong>
+  <%= @visit.signed_contract %>
+</p>
+</span>
+</div>
+<%= link_to 'Edit', edit_visit_path(@visit) %> |
+<%= link_to 'Back', visits_path %>

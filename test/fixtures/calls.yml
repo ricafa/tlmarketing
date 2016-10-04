@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  will_visit: false
+  answer: false
+  operator_id: 
+  contact_id: 
+  call_time: 2016-09-03 10:29:13
+  obs: MyText
+
+two:
+  will_visit: false
+  answer: false
+  operator_id: 
+  contact_id: 
+  call_time: 2016-09-03 10:29:13
+  obs: MyText
